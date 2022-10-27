@@ -1,0 +1,36 @@
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+
+.wp-block-cgb-block-devit-test-accorderon  {
+  
+}
+
+
+
+.editor-styles-wrapper{
+  .accordeon-item{
+    &-title{
+      font-family: inherit;
+    }
+
+    
+
+    &.ghost{
+      transition: opacity .5s;
+      opacity: .7;
+      border: 3px dashed rgba(205, 214, 218, 0.5);
+
+      .accordeon-item-toggler{
+        opacity: 1;
+      }
+
+      &:hover{
+        opacity: 1;
+      }
+    }
+  }
+}

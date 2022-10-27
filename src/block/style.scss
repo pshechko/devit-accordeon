@@ -1,0 +1,157 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+
+.wp-block-cgb-block-devit-test-accorderon  {
+
+}
+
+.accordeon-item {
+  display: grid; 
+  grid-auto-columns: 1fr; 
+  grid-template-columns: auto 1fr auto; 
+    grid-template-rows: auto auto; 
+    grid-template-areas: 
+      "acc-number acc-title acc-toggler"
+      "acc-number acc-content acc-content";
+  gap: 0px 0px; 
+  overflow: hidden;
+  transition: all .5s;
+  padding: 3.089% 3.5%;
+  
+
+  @media screen and (max-width: 720px){
+    padding: 6.178% 4.75%;
+  }
+
+  @media screen and (max-width: 480px){
+    grid-template-columns: 1fr auto; 
+    grid-template-rows: auto 1fr auto; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+      "acc-number acc-number"
+      "acc-title acc-toggler"
+      "acc-content acc-content"; 
+    padding: 9.67% 4.75%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+
+  
+
+
+  &+&{
+    border-top: 3px solid rgba(205, 214, 218, 0.25);
+  }
+
+  &-title{
+    grid-area: acc-title;
+
+    font-family: inherit;
+    margin: 0;
+    font-weight: 700;
+
+    @media screen and (max-width: 720px){
+      font-size: 1.6em;
+      line-height: 1.6em;
+    }
+  }
+
+  &-content { 
+    grid-area: acc-content; 
+
+    &-inner{
+      padding-top: 34px;
+
+      @media screen and (max-width: 720px){
+        padding-top: 26px;
+      }
+
+      @media screen and (max-width: 480){
+        padding-top: 16px;
+      }
+    }
+  }
+
+  &-number { 
+    grid-area: acc-number; 
+
+    font-size: 2.66em;
+    font-weight: 700;
+    color: rgba(60, 60, 67, 0.5);
+    padding-right: 52px;
+
+    @media screen and (max-width: 720px){
+      font-size: 1.8em;
+      line-height: 1;
+      padding-right: 32px;
+    }
+
+    @media screen and (max-width: 480){
+      margin-bottom: 11px;
+    }
+
+    
+  }
+
+  &-toggler { 
+    grid-area: acc-toggler; 
+    display: block;
+    background: #F3F5F6;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    font-size: 48px;
+    
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color .5s;
+
+
+    @media screen and (max-width: 720){
+      width: 40px;
+      height: 40px;
+      font-size: 40px;
+    }
+
+    @media screen and (max-width: 480){
+      width: 32px;
+      height: 32px;
+      font-size: 32px;
+    }
+
+    &:after{
+      content: "+";
+      display: block;
+      color: #fff;
+      font-size: inherit;
+      line-height: 100%;
+      text-align: center;
+      transform: rotate(0deg);
+      transition: transform .5s;
+    }
+  }
+
+  &:not(.expanded){
+    .accordeon-item-content { 
+      display: none;
+    }
+  }
+
+  &.expanded{
+    
+
+    .accordeon-item{
+      &-toggler { 
+        background: #000;
+        &:after{
+          transform: rotate(45deg);
+        }
+      }
+    }
+  }
+  
+}
